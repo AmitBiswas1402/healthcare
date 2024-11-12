@@ -21,7 +21,7 @@ const formSchema = z.object({
   }),
 });
 
-const ProfileForm = () => {
+export const PatientForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,10 +31,8 @@ const ProfileForm = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-  }
-};
+  }  
 
-export const PatientForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
